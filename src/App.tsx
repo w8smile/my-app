@@ -7,13 +7,14 @@ import {Abibas} from "./components/pages/Abibas";
 import {Error404} from "./components/pages/Error404";
 import {NavWrapper} from "./components/styled/NavWrapper";
 import Model from "./components/pages/Model";
-import {PumaModels} from "./components/pages/PumaModels";
+import {Prices} from "./components/pages/Prices";
 
 
 const PATH  = {
     PAGE1: 'adidas',
     PAGE2: 'puma',
     PAGE3: 'abibas',
+    PAGE4: 'prices'
 } as const
 
 
@@ -34,6 +35,9 @@ function App() {
                     <NavWrapper>
                         <NavLink to={PATH.PAGE3}>ABIBAS</NavLink>
                     </NavWrapper>
+                    <NavWrapper>
+                        <NavLink to={PATH.PAGE4}>PRICE</NavLink>
+                    </NavWrapper>
                 </div>
                 <div className={styles.content}>
                     <Routes>
@@ -41,6 +45,7 @@ function App() {
                         <Route path={PATH.PAGE1} element={<Adidas/>}/>
                         <Route path={PATH.PAGE2} element={<Puma/>}/>
                         <Route path={PATH.PAGE3} element={<Abibas/>}/>
+                        <Route path={PATH.PAGE4} element={<Prices/>}/>
                         <Route path={'/*'} element={<Error404/>}/>
                         <Route path={'/:model/:id'} element={<Model/>}/>
 

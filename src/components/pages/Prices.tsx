@@ -4,6 +4,7 @@ import styles from './Prices.module.css';
 
 type Props = {};
 export const Prices = (props: Props) => {
+
     const sneakers = [
         {
             manufacturer: "Adidas",
@@ -38,14 +39,28 @@ export const Prices = (props: Props) => {
     ];
 
     const [filteredSneakers, setFilteredSneakers] = useState(sneakers);
+    const [searchParams, setSearchParams] = useSearchParams()
 
     function handleOnSale() {
-
+        setSearchParams({onSale: 'true'})
+        // setFilteredSneakers(sneakers.filter((el)=>el.onSale))
     }
 
     function handleReset() {
-
+        setSearchParams({})
+        // setFilteredSneakers(sneakers)
     }
+
+    useEffect(() => {
+        if (searchParams.get('onSale')==='true'){
+            setFilteredSneakers(sneakers.filter((el)=>el.onSale))
+        } else {
+            setFilteredSneakers(sneakers)
+        }
+    }, [searchParams]);
+
+
+
 
 
     return (
