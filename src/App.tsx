@@ -9,6 +9,7 @@ const PATH = {
     PAGE2: '/puma',
     PAGE3: '/abibas',
     PRICES: '/prices',
+    PROTECTEDPAGE: '/protectedpage'
 } as const
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
                     <S.NavWrapper><NavLink to={PATH.PAGE2}>Puma</NavLink></S.NavWrapper>
                     <S.NavWrapper><NavLink to={PATH.PAGE3}>Abibas</NavLink></S.NavWrapper>
                     <S.NavWrapper><NavLink to={PATH.PRICES}>Цены для оптовиков</NavLink></S.NavWrapper>
+                    <S.NavWrapper><NavLink to={PATH.PROTECTEDPAGE}>PROTECTED</NavLink></S.NavWrapper>
                 </div>
                 <div className={styles.content}>
                     <Outlet/>
