@@ -23,6 +23,7 @@ function App() {
                     <S.NavWrapper><NavLink to={PATH.PRICES}>Цены для оптовиков</NavLink></S.NavWrapper>
                 </div>
                 <div className={styles.content}>
+                    <Outlet/>
 
                     {/*<Routes>*/}
                     {/*    <Route path={'/'} element={<Navigate to={PATH.PAGE1}/>}/>*/}
