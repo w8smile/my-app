@@ -1,14 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from "./components/Site.module.css";
-import {Adidas} from "./components/pages/Adidas";
-import {Puma} from "./components/pages/Puma";
-import {Abibas} from "./components/pages/Abibas";
-import {Navigate, NavLink, Route, Routes} from 'react-router-dom';
-import {Error404} from "./components/pages/Error404";
-import styled from 'styled-components';
+import {NavLink, Outlet} from 'react-router-dom';
 import {S} from './components/pages/_styles'
-import {Model} from "./components/pages/Model";
-import {Prices} from "./components/pages/Prices";
 
 
 const PATH = {
@@ -30,21 +23,22 @@ function App() {
                     <S.NavWrapper><NavLink to={PATH.PRICES}>Цены для оптовиков</NavLink></S.NavWrapper>
                 </div>
                 <div className={styles.content}>
-                    <Routes>
-                        <Route path={'/'} element={<Navigate to={PATH.PAGE1}/>}/>
 
-                        <Route path={PATH.PAGE1} element={<Adidas/>}/>
-                        <Route path={PATH.PAGE2} element={<Puma/>}/>
-                        <Route path={PATH.PAGE3} element={<Abibas/>}/>
-                        <Route path={PATH.PRICES} element={<Prices/>}/>
-                        {/*<Route path={'/adidas/:id'} element={<Model/>}/>*/}
-                        <Route path={'/:model/:id'} element={<Model/>}/>
+                    {/*<Routes>*/}
+                    {/*    <Route path={'/'} element={<Navigate to={PATH.PAGE1}/>}/>*/}
 
-                        <Route path={'/*'} element={<Error404/>}/>
+                    {/*    <Route path={PATH.PAGE1} element={<Adidas/>}/>*/}
+                    {/*    <Route path={PATH.PAGE2} element={<Puma/>}/>*/}
+                    {/*    <Route path={PATH.PAGE3} element={<Abibas/>}/>*/}
+                    {/*    <Route path={PATH.PRICES} element={<Prices/>}/>*/}
+                    {/*    /!*<Route path={'/adidas/:id'} element={<Model/>}/>*!/*/}
+                    {/*    <Route path={'/:model/:id'} element={<Model/>}/>*/}
 
-                        {/*<Route path={'/page/error'} element={<Error404/>}/>*/}
-                        {/*<Route path={'/*'} element={<Navigate to={'/page/error'}/>}/>*/}
-                    </Routes>
+                    {/*    <Route path={'/*'} element={<Error404/>}/>*/}
+
+                    {/*    /!*<Route path={'/page/error'} element={<Error404/>}/>*!/*/}
+                    {/*    /!*<Route path={'/*'} element={<Navigate to={'/page/error'}/>}/>*!/*/}
+                    {/*</Routes>*/}
 
                 </div>
             </div>
