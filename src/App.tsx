@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "./components/Site.module.css";
-import {NavLink, Outlet} from 'react-router-dom';
+import {Link, NavLink, Outlet, useNavigate} from 'react-router-dom';
 import {S} from './components/pages/_styles'
 
 
@@ -13,6 +13,10 @@ const PATH = {
 } as const
 
 function App() {
+    const navigate = useNavigate();
+    const onClickBackHandler =()=>{
+        return navigate(-1);
+    }
     return (
         <div>
             <div className={styles.header}><h1>HEADER</h1></div>
@@ -25,7 +29,12 @@ function App() {
                     <S.NavWrapper><NavLink to={PATH.PROTECTEDPAGE}>PROTECTED</NavLink></S.NavWrapper>
                 </div>
                 <div className={styles.content}>
+                    <div>
+                        <S.NavWrapper><NavLink to={PATH.PAGE1}>HOME</NavLink></S.NavWrapper>
+                        <button onClick={onClickBackHandler}>BACK</button>
+                    </div>
                     <Outlet/>
+
 
                     {/*<Routes>*/}
                     {/*    <Route path={'/'} element={<Navigate to={PATH.PAGE1}/>}/>*/}
